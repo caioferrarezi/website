@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import styles from './theme-switcher.module.css'
 
@@ -34,6 +34,10 @@ export default function ThemeSwitcher() {
     setTheme(value)
     setLocalTheme(value)
   }
+
+  useEffect(() => {
+    document.body.style.transition = null
+  }, [])
 
   return (
     <label
