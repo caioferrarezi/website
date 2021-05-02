@@ -1,0 +1,47 @@
+.header {
+  margin: 0 0 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.headerFull {
+  min-height: 14rem;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.headerAvatar {
+  display: block;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.headerTitle {
+  font-size: var(--font-subheading);
+  margin: 0;
+}
+
+.headerFull .headerTitle {
+  font-size: var(--font-heading);
+  margin: 0 0 1rem;
+  text-align: center;
+}
+
+@media screen and (min-width: 786px) {
+  .headerFull {
+    min-height: 18rem;
+  }
+
+  .headerAvatar {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  .headerFull .headerTitle {
+    font-size: var(--font-display);
+  }
+}

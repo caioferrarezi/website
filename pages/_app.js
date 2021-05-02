@@ -3,9 +3,9 @@ import theme from '../lib/theme'
 import 'normalize.css'
 import '../styles/globals.css'
 
-function MyApp({ Component, pageProps }) {
-  theme.update()
+theme.update()
 
+function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />
 }
 
