@@ -1,29 +1,51 @@
 import { useState } from 'react'
 
-import theme from '../lib/theme'
-
 import styles from './theme-switcher.module.css'
 
+function getLocalTheme() {
+  let theme = 'light'
+
+  if (typeof localStorage !== 'undefined') {
+    theme = localStorage.getItem('theme')
+  }
+
+  return theme
+}
+
+function setLocalTheme(value) {
+  if (typeof localStorage !== 'undefined') {
+    localStorage.setItem('theme', value)
+  }
+
+  if (typeof window !== 'undefined') {
+    document.body.classList.remove('light')
+    document.body.classList.remove('dark')
+
+    document.body.classList.add(value)
+  }
+}
+
 export default function ThemeSwitcher() {
-  const [layout, setLayout] = useState(theme.state)
+  const [theme, setTheme] = useState(getLocalTheme())
 
-  function setTheme(event) {
-    theme.toggle()
+  const changeTheme = ({ target }) => {
+    const { value } = target
 
-    setLayout(theme.state)
+    setTheme(value)
+    setLocalTheme(value)
   }
 
   return (
     <label
       className={styles.switcher}
-      aria-label={'modo' + layout === 'dark' ? 'claro' : 'escuro'}
+      aria-label={'modo' + theme === 'dark' ? 'claro' : 'escuro'}
     >
       <input
         className={styles.switcherInput}
         type="checkbox"
-        value={layout}
-        checked={layout === 'dark'}
-        onChange={setTheme}
+        value={theme === 'dark' ? 'light' : 'dark'}
+        checked={theme === 'dark'}
+        onChange={changeTheme}
       />
 
       <span className={styles.switcherControl} />
