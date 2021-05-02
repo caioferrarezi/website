@@ -1,0 +1,17 @@
+.header {
+  margin: 0 0 3rem;
+}
+
+.posts {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.postItem {
+  margin: 0 0 3rem;
+}
+
+.postItemDate {
+  font-size: 1rem;
+}
