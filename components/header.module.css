@@ -25,6 +25,14 @@
   margin: 0;
 }
 
+.headerFull .headerLink {
+  text-decoration: none;
+}
+
+.headerFull .headerLink .headerTitle {
+  color: var(--color-text-secondary);
+}
+
 .headerFull .headerTitle {
   font-size: var(--font-heading);
   margin: 0 0 1rem;

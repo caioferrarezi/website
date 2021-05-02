@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import Image from 'next/image'
 
 import dynamic from 'next/dynamic'
@@ -30,9 +31,13 @@ export default function Header(props) {
         </div>
       )}
 
-      <h1 className={styles.headerTitle}>
-        Caio Ferrarezi
-      </h1>
+      <Link href="/">
+        <a className={styles.headerLink}>
+          <h1 className={styles.headerTitle}>
+            Caio Ferrarezi
+          </h1>
+        </a>
+      </Link>
 
       <ThemeSwitcher />
     </header>

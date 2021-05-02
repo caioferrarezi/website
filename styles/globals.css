@@ -1,21 +1,52 @@
 /* https://coolors.co/2a91df-cc3e58-ffffff-23262f */
 
 :root {
-  --color-white: #ffffff;
-  --color-dark: #23262f;
-  --background: var(--color-white);
-  --color-text: var(--color-dark);
-  --color-primary: #ce4760;
+  --color-lighter: #ffffff;
+  --color-light: #d6d6d6;
+  --color-dark: #454c5e;
+  --color-darker: #23262f;
+
   --font-display: 2rem;
   --font-heading: 1.5rem;
   --font-subheading: 1.25rem;
-  --font-text: 1rem;
+  --font-root: 1rem;
+  --font-text: var(--font-root);
+}
+
+@media screen and (min-width: 786px) {
+  :root {
+    --font-display: 3rem;
+    --font-heading: 2rem;
+    --font-subheading: 1.5rem;
+    --font-text: 1.2rem;
+  }
+}
+
+.light {
+  --color-primary: #cc3e58;
+  --color-primary-dark: #a12b41;
+  --color-primary-light: #d86e81;
+
+  --color-text: var(--color-dark);
+  --color-text-secondary: var(--color-darker);
+  --background: var(--color-lighter);
+  --background-secondary: var(--color-light)
 }
 
 .dark {
-  --background: var(--color-dark);
-  --color-text: var(--color-white);
   --color-primary: #2a91df;
+  --color-primary-dark: #1b70b1;
+  --color-primary-light: #5face7;
+
+  --color-text: var(--color-light);
+  --color-text-secondary: var(--color-lighter);
+  --background: var(--color-darker);
+  --background-secondary: var(--color-dark)
+}
+
+.light,
+.dark {
+  --color-link: var(--color-primary);
 }
 
 html,
@@ -32,7 +63,8 @@ h1,
 h2,
 h3 {
   line-height: 1.2;
-  margin: 0 0 .56em;
+  margin: 1.2em 0 .8em;
+  color: var(--color-text-secondary);
 }
 
 h1 {
@@ -48,22 +80,54 @@ h3 {
 }
 
 p,
-li {
+li,
+pre {
   font-size: var(--font-text);
   line-height: 1.5;
+  margin: 1.2em 0;
 }
 
 a {
   color: var(--color-primary);
   text-decoration: none;
-  border-bottom: 1px solid var(--color-primary);
 }
 
-@media screen and (min-width: 786px) {
-  :root {
-    --font-display: 3rem;
-    --font-heading: 2rem;
-    --font-subheading: 1.5rem;
-    --font-text: 1.2rem;
-  }
+a:hover {
+  color: var(--color-primary-light);
+}
+
+a > h1,
+a > h2,
+a > h3 {
+  color: inherit;
+  border: 0;
+}
+
+blockquote {
+  margin: 0;
+  font-style: italic;
+  padding: .8em 1.6em;
+  border-left: .3em solid var(--background-secondary);
+}
+
+blockquote p {
+  margin: 0;
+}
+
+code {
+  font-size: .8em;
+  line-height: 1.5;
+  background-color: var(--background-secondary);
+}
+
+pre > code {
+  display: block;
+  padding: 1.5rem;
+  border-radius: .3em;
+}
+
+p > code {
+  display: inline;
+  padding: .15em .2em .05em;
+  vertical-align: text-top;
 }

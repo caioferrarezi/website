@@ -1,0 +1,8 @@
+.postTitle {
+  margin: 0 0 .3em;
+}
+
+.postDate {
+  font-size: var(--font-root);
+  margin: 0 0 2.5em;
+}

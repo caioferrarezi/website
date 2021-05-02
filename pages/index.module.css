@@ -1,14 +1,35 @@
+.bio {
+  margin: 0;
+}
+
+.bio:after {
+  content: '';
+  display: block;
+  width: 70%;
+  height: .0625rem;
+  margin: 2rem auto 0;
+  background-color: var(--background-secondary);
+}
+
 .posts {
   padding: 0;
   margin: 0;
   list-style: none;
-  margin: 3rem 0 0;
+  margin: 2.5rem 0 0;
 }
 
 .postItem {
   margin: 0 0 3rem;
 }
 
+.postItemTitle {
+  margin: 0 0 .3em;
+}
+
 .postItemDate {
-  font-size: 1rem;
+  font-size: var(--font-root);
+}
+
+.postItemExcerpt {
+  margin: 1em 0;
 }
