@@ -124,6 +124,7 @@ pre > code {
   display: block;
   padding: 1.5rem;
   border-radius: .3em;
+  overflow: auto;
 }
 
 p > code {
