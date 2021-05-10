@@ -12,12 +12,20 @@
 }
 
 .headerAvatar {
+  position: relative;
   display: block;
   width: 8rem;
   height: 8rem;
   border-radius: 9999px;
   overflow: hidden;
   margin-bottom: 1rem;
+}
+
+.headerAvatarImage {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 .headerTitle {

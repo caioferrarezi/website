@@ -8,16 +8,8 @@ import utils from '../styles/utils.module.css'
 import { getAllPosts } from '../lib/api'
 import formatDate from '../lib/format-date'
 
-export async function getStaticProps() {
-  const posts = getAllPosts()
-
-  return {
-    props: { posts }
-  }
-}
-
 export default function Home(props) {
-  const { posts } = props
+  const { user, posts } = props
 
   return (
     <div className={utils.container}>
@@ -27,7 +19,10 @@ export default function Home(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header layout="full" />
+      <Header
+        layout="full"
+        avatarUrl={user.avatar_url}
+      />
 
       <main>
         <aside className={styles.bio}>
@@ -58,4 +53,23 @@ export default function Home(props) {
       </main>
     </div>
   )
+}
+
+export async function getStaticProps() {
+  const user = await getGithubInfo()
+  const posts = getAllPosts()
+
+  return {
+    props: { user, posts }
+  }
+}
+
+async function getGithubInfo() {
+  const response = await fetch('https://api.github.com/users/caioferrarezi', {
+    headers: {
+      'Authorization': `token ${process.env.GITHUB_KEY}`
+    }
+  })
+
+  return response.json()
 }
