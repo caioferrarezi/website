@@ -115,7 +115,7 @@ blockquote p {
 }
 
 code {
-  font-size: .8em;
+  font-size: .75em;
   line-height: 1.5;
   background-color: var(--background-secondary);
 }

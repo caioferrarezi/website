@@ -78,43 +78,45 @@ A notação Big-O é a representação matemática da complexidade de um algorit
 
 Além do tempo, podemos medir a complexidade dos algoritmos com base no espaço. A notação Big-O aqui refere-se à quantidade de memória que um algoritmo aloca para resolver determinado problema.
 
-Um algoritmo com a complexidade constante **O(1)**, aloca sempre uma mesma quantidade de memória independente do tamanho da entrada de dados. Já a complexidade de espaço **O(n)**, por exemplo, cresce linearmente em função do tamanho da entrada. Exemplos:
+Um algoritmo com a complexidade constante **O(1)**, aloca sempre uma mesma quantidade de memória independente do tamanho da entrada de dados. Já a complexidade de espaço **O(n)**, por exemplo, cresce linearmente em função do tamanho da entrada.
 
-- Complexidade constante O(1):
-  ```javascript
-  const numeros = [1, 2, 3, 4, 5];
+Exemplo de complexidade constante O(1):
 
-  let i = 0; // 1 alocação
-  let n = numeros.length; // 1 alocação
+```javascript
+const numeros = [1, 2, 3, 4, 5];
 
-  let sum = 0; // 1 alocação
+let i = 0; // 1 alocação
+let n = numeros.length; // 1 alocação
 
-  while(i < n) {
-    sum += numeros[i];
+let sum = 0; // 1 alocação
 
-    i++;
-  }
+while(i < n) {
+  sum += numeros[i];
 
-  console.log(sum); // 15
-  ```
+  i++;
+}
 
-- Complexidade linear O(n):
-  ```javascript
-  const numeros = [1, 2, 3, 4, 5];
+console.log(sum); // 15
+```
 
-  let i = 0; // 1 alocação
-  let n = numeros.length; // 1 alocação
+Exemplo de complexidade linear O(n):
 
-  let aux = []; // 1 alocação
+```javascript
+const numeros = [1, 2, 3, 4, 5];
 
-  while(i < n) {
-    aux[i] = numeros[i]; // n alocações
+let i = 0; // 1 alocação
+let n = numeros.length; // 1 alocação
 
-    i++;
-  }
+let aux = []; // 1 alocação
 
-  console.log(aux); // [1, 2, 3, 4, 5]
-  ```
+while(i < n) {
+  aux[i] = numeros[i]; // n alocações
+
+  i++;
+}
+
+console.log(aux); // [1, 2, 3, 4, 5]
+```
 
 ## Eficiência
 
