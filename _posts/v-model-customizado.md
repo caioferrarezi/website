@@ -1,6 +1,6 @@
 ---
-title: 'Como adicionar o v-model a um componente Vue'
-date: '2021-05-23'
+title: 'Como adicionar o v-model em um componente Vue'
+date: '2021-05-24'
 excerpt: 'Aprenda a dar suporte à diretiva v-model em seus componentes.'
 ---
 
@@ -42,15 +42,15 @@ Imagina que você queira componentizar o seu próprio input, como fazer então p
 export default {
   name: 'CustomInput',
   props: {
-    value: String
+    value: String // declaração da prop value
   },
   data() {
     return {
-      text: this.value
+      text: this.value // adição do valor inicial da prop na variável text
     }
   },
   watch: {
-    value() {
+    value() { // observando para que a atualização da prop reflita no componente
       this.text = this.value
     }
   },
@@ -58,7 +58,7 @@ export default {
     handleInput(event) {
       const { value } = event.target
 
-      this.$emit('input', value)
+      this.$emit('input', value) // emitindo o valor do input alterado
     }
   }
 }
@@ -76,14 +76,12 @@ Mas o Vue também oferece a opção de configurar uma propriedade e um evento pa
 ```javascript
 export default {
   name: 'CustomInput',
-  // configuração do v-model
-  model: {
+  model: { // configuração do v-model
     prop: 'modelValue',
     event: 'change'
   }
   props: {
-    // nova propriedade
-    modelValue: String
+    modelValue: String // nova propriedade
   },
   data() {
     return {
@@ -91,8 +89,7 @@ export default {
     }
   },
   watch: {
-    // novo observador da propriedade
-    modelValue() {
+    modelValue() { // novo observador da propriedade
       this.text = this.modelValue
     }
   },
@@ -100,8 +97,7 @@ export default {
     handleInput(event) {
       const { value } = event.target
 
-      // emitindo novo evento
-      this.$emit('change', value)
+      this.$emit('change', value) // emitindo novo evento
     }
   }
 }
