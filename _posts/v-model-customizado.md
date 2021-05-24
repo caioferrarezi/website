@@ -108,4 +108,4 @@ export default {
 
 Pronto! O `input` customizado agora tem suporte a diretiva `v-model` com propriedade e evento customizados.
 
-Como só foi alterado o comportamento interno do componente a sua chamada (que vimos acima) não será afetada.
+Como só foi alterado o comportamento interno do componente, a sua chamada (que vimos acima) não será afetada.
