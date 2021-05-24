@@ -9,14 +9,20 @@ import { getAllPosts } from '../lib/api'
 import formatDate from '../lib/format-date'
 
 export default function Home(props) {
-  const { user, posts } = props
+  const { user, posts, url } = props
 
   return (
     <div className={utils.container}>
       <Head>
-        <title>Caio Ferrarezi</title>
-        <meta name="description" content="Latino-americano, desenvolvedor front-end, estudante de tecnologia, curioso e inquieto." />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href={url} />
+        <title>Blog Pessoal | Caio Ferrarezi</title>
+        <meta name="description" content="Latino-americano, desenvolvedor front-end, estudante de tecnologia, curioso e inquieto." />
+        <meta property="og:locale" content="pt_BR" />
+        <meta property="og:title" content="Blog Pessoal | Caio Ferrarezi" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={url} />
+        <meta property="og:description" content="Latino-americano, desenvolvedor front-end, estudante de tecnologia, curioso e inquieto." />
       </Head>
 
       <Header
@@ -58,14 +64,17 @@ export default function Home(props) {
 export async function getStaticProps() {
   const user = await getGithubInfo()
   const posts = getAllPosts()
+  const url = process.env.CANONICAL_URL
 
   return {
-    props: { user, posts }
+    props: { user, posts, url }
   }
 }
 
 async function getGithubInfo() {
-  const response = await fetch('https://api.github.com/users/caioferrarezi', {
+  const endpoint = 'https://api.github.com/users/caioferrarezi'
+
+  const response = await fetch(endpoint, {
     headers: {
       'Authorization': `token ${process.env.GITHUB_KEY}`
     }

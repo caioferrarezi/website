@@ -91,7 +91,8 @@ export default {
     }
   },
   watch: {
-    value() {
+    // novo observador da propriedade
+    modelValue() {
       this.text = this.modelValue
     }
   },
