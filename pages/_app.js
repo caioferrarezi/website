@@ -1,6 +1,6 @@
 import 'normalize.css'
 import '../styles/globals.css'
-import '../styles/dracula.css'
+import '../styles/atom-one-dark.css'
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />

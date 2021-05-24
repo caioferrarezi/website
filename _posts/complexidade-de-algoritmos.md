@@ -12,7 +12,7 @@ O exemplo mais famoso na vida cotidiana são as receitas. Elas nos dão as instr
 
 Os humanos têm a capacidade de entender esses processos de maneira mais subjetiva, normalmente temos uma visão geral do problema e isso pode fazer com a gente não siga necessariamente todos os passos de forma exata.
 
-Na computação, o conceito é o mesmo a medida que temos que processar uma entrada para gerar uma saída e resolver um problema, porém as máquinas faze, **exatamente** o que pedimos a elas e para evitar ambiguidade em nosso código, devemos ser mais precisos em nossas instruções.
+Na computação, o conceito é o mesmo a medida que temos que processar uma entrada para gerar uma saída e resolver um problema, porém as máquinas fazem **exatamente** o que pedimos a elas e para evitar ambiguidade em nosso código, devemos ser mais precisos em nossas instruções.
 
 ## Como buscar uma palavra em um dicionário?
 
