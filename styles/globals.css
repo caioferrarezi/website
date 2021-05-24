@@ -79,12 +79,25 @@ h3 {
   font-size: var(--font-subheading);
 }
 
+ul,
+ol {
+  padding: 0 0 0 1.2em;
+}
+
 p,
 li,
 pre {
   font-size: var(--font-text);
   line-height: 1.5;
   margin: 1.2em 0;
+}
+
+li {
+  margin: 1em 0;
+}
+
+li > p {
+  margin: 0;
 }
 
 a {
@@ -105,8 +118,7 @@ a > h3 {
 
 blockquote {
   margin: 0;
-  font-style: italic;
-  padding: .8em 1.6em;
+  padding: .6em 1em;
   border-left: .3em solid var(--background-secondary);
 }
 
@@ -118,17 +130,16 @@ code {
   font-size: .75em;
   line-height: 1.5;
   background-color: var(--background-secondary);
+  border-radius: .3em;
 }
 
 pre > code {
   display: block;
   padding: 1.5rem;
-  border-radius: .3em;
   overflow: auto;
 }
 
 p > code {
   display: inline;
   padding: .15em .2em .05em;
-  vertical-align: text-top;
 }
