@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Head from 'next/head'
-import Header from '../components/header'
+import Header from '../src/components/header'
 
 import styles from './index.module.css'
 import utils from '../styles/utils.module.css'
@@ -9,7 +9,7 @@ import { getAllPosts } from '../lib/api'
 import formatDate from '../lib/format-date'
 
 export default function Home(props) {
-  const { user, posts, url } = props
+  const { posts, url } = props
 
   return (
     <div className={utils.container}>
@@ -25,14 +25,11 @@ export default function Home(props) {
         <meta property="og:description" content="Latino-americano, desenvolvedor front-end, estudante de tecnologia, curioso e inquieto." />
       </Head>
 
-      <Header
-        layout="full"
-        avatarUrl={user.avatar_url}
-      />
+      <Header layout="full" />
 
       <main>
         <aside className={styles.bio}>
-          <p>Oi, eu sou o Caio! 🧑‍🚀 Desenvolvedor front-end e estudante de tecnologia. Aqui eu compartilho o que estou aprendendo! Se quiser, você pode me encontrar no <a href="https://www.linkedin.com/in/caio-ferrarezi-414164b3/" target="_blank">linkedin</a> e no <a href="https://github.com/caioferrarezi" target="_blank">github</a>.</p>
+          <p>Oi, eu sou o Caio! 🧑‍🚀 Desenvolvedor front-end e estudante de tecnologia. Aqui eu compartilho o que estou aprendendo! Se quiser, você pode me encontrar no <a href="https://www.linkedin.com/in/caio-ferrarezi-414164b3/" target="_blank" rel="noreferrer">linkedin</a> e no <a href="https://github.com/caioferrarezi" target="_blank" rel="noreferrer">github</a>.</p>
         </aside>
 
         <h2>Posts</h2>
@@ -62,23 +59,10 @@ export default function Home(props) {
 }
 
 export async function getStaticProps() {
-  const user = await getGithubInfo()
   const posts = getAllPosts()
   const url = process.env.CANONICAL_URL
 
   return {
-    props: { user, posts, url }
+    props: { posts, url }
   }
-}
-
-async function getGithubInfo() {
-  const endpoint = 'https://api.github.com/users/caioferrarezi'
-
-  const response = await fetch(endpoint, {
-    headers: {
-      'Authorization': `token ${process.env.GITHUB_KEY}`
-    }
-  })
-
-  return response.json()
 }
