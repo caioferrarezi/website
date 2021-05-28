@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Head from 'next/head'
+import Image from 'next/image'
 import Header from "../../src/components/header"
 
 import utils from '../../styles/utils.module.css'
@@ -9,7 +10,7 @@ import { getPostBySlug, getPostSlugs } from "../../lib/api"
 import markdownToHtml from '../../lib/markdown-to-html'
 import formatDate from '../../lib/format-date'
 
-export default function Post({ post, url }) {
+export default function Post({ post, url, coverUrl }) {
   const { title, excerpt, content, date } = post
 
   return (
@@ -24,6 +25,9 @@ export default function Post({ post, url }) {
         <meta property="og:type" content="article" />
         <meta property="og:url" content={url} />
         <meta property="og:description" content={excerpt} />
+        {coverUrl &&
+          <meta property="og:image" content={coverUrl} />
+        }
       </Head>
 
       <Header />
@@ -60,13 +64,17 @@ export async function getStaticProps(context) {
   const post = getPostBySlug(slug)
   const content = await markdownToHtml(post.content)
 
+  const coverUrl = post.cover ?
+    `${CANONICAL_URL}/${post.cover}/cover.png` : null
+
   return {
     props: {
       post: {
         ...post,
         content
       },
-      url
+      url,
+      coverUrl
     }
   }
 }

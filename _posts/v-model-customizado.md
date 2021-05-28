@@ -2,6 +2,7 @@
 title: 'Como adicionar o v-model em um componente Vue'
 date: '2021-05-24'
 excerpt: 'Aprenda a dar suporte à diretiva v-model em seus componentes.'
+cover: 'images/posts/v-model-customizado'
 ---
 
 O `v-model` é uma diretiva do Vue que permite criar uma comunicação de mão dupla (*two-way binding*) automática entre componentes.
