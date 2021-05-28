@@ -1,12 +1,13 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 import dynamic from 'next/dynamic'
 import styles from './header.module.css'
 
-const ThemeSwitcher = dynamic(() => import('../components/theme-switcher'), { ssr: false })
+const ThemeSwitcher = dynamic(() => import('./theme-switcher'), { ssr: false })
 
 export default function Header(props) {
-  const { layout, avatarUrl } = props
+  const { layout } = props
 
   function getStyle(layout) {
     if (layout === 'full') {
@@ -20,9 +21,11 @@ export default function Header(props) {
     <header className={getStyle(layout)}>
       {layout === 'full' && (
         <div className={styles.headerAvatar}>
-          <img
-            src={avatarUrl}
-            className={styles.headerAvatarImage}
+          <Image
+            src="/images/avatar.jpg"
+            layout="fill"
+            priority={true}
+            sizes="(max-width: 600px) 32vw, 20vw"
             alt="Minha foto de perfil que vai do topo da cabeça até a altura do ombro, estou com cabelo e barba curtos, vestindo um óculos e uma blusa de moletom azul"
           />
         </div>

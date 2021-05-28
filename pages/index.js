@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Head from 'next/head'
-import Header from '../components/header'
+import Header from '../src/components/header'
 
 import styles from './index.module.css'
 import utils from '../styles/utils.module.css'
@@ -9,7 +9,7 @@ import { getAllPosts } from '../lib/api'
 import formatDate from '../lib/format-date'
 
 export default function Home(props) {
-  const { user, posts, url } = props
+  const { posts, url } = props
 
   return (
     <div className={utils.container}>
@@ -25,10 +25,7 @@ export default function Home(props) {
         <meta property="og:description" content="Latino-americano, desenvolvedor front-end, estudante de tecnologia, curioso e inquieto." />
       </Head>
 
-      <Header
-        layout="full"
-        avatarUrl={user.avatar_url}
-      />
+      <Header layout="full" />
 
       <main>
         <aside className={styles.bio}>
@@ -62,23 +59,10 @@ export default function Home(props) {
 }
 
 export async function getStaticProps() {
-  const user = await getGithubInfo()
   const posts = getAllPosts()
   const url = process.env.CANONICAL_URL
 
   return {
-    props: { user, posts, url }
+    props: { posts, url }
   }
-}
-
-async function getGithubInfo() {
-  const endpoint = 'https://api.github.com/users/caioferrarezi'
-
-  const response = await fetch(endpoint, {
-    headers: {
-      'Authorization': `token ${process.env.GITHUB_KEY}`
-    }
-  })
-
-  return response.json()
 }
