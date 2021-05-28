@@ -29,7 +29,7 @@ export default function Home(props) {
 
       <main>
         <aside className={styles.bio}>
-          <p>Oi, eu sou o Caio! 🧑‍🚀 Desenvolvedor front-end e estudante de tecnologia. Aqui eu compartilho o que estou aprendendo! Se quiser, você pode me encontrar no <a href="https://www.linkedin.com/in/caio-ferrarezi-414164b3/" target="_blank">linkedin</a> e no <a href="https://github.com/caioferrarezi" target="_blank">github</a>.</p>
+          <p>Oi, eu sou o Caio! 🧑‍🚀 Desenvolvedor front-end e estudante de tecnologia. Aqui eu compartilho o que estou aprendendo! Se quiser, você pode me encontrar no <a href="https://www.linkedin.com/in/caio-ferrarezi-414164b3/" target="_blank" rel="noreferrer">linkedin</a> e no <a href="https://github.com/caioferrarezi" target="_blank" rel="noreferrer">github</a>.</p>
         </aside>
 
         <h2>Posts</h2>
