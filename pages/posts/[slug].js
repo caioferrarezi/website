@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import Head from 'next/head'
-import Image from 'next/image'
 import Header from "../../src/components/header"
 
 import utils from '../../styles/utils.module.css'

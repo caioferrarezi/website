@@ -1,28 +1,23 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import { parseCookies, setCookie } from 'nookies'
 
 import styles from './theme-switcher.module.css'
 
 function getLocalTheme() {
-  let theme = 'light'
+  const cookies = parseCookies()
 
-  if (typeof localStorage !== 'undefined') {
-    theme = localStorage.getItem('theme')
-  }
-
-  return theme
+  return cookies.theme
 }
 
 function setLocalTheme(value) {
-  if (typeof localStorage !== 'undefined') {
-    localStorage.setItem('theme', value)
-  }
+  setCookie(null, 'theme', value)
 
-  if (typeof window !== 'undefined') {
-    document.body.classList.remove('light')
-    document.body.classList.remove('dark')
+  document.body.classList.remove('light')
+  document.body.classList.remove('dark')
 
-    document.body.classList.add(value)
-  }
+  document.body.classList.add(value)
+
+  return value
 }
 
 export default function ThemeSwitcher() {
@@ -31,13 +26,8 @@ export default function ThemeSwitcher() {
   const changeTheme = ({ target }) => {
     const { value } = target
 
-    setTheme(value)
-    setLocalTheme(value)
+    setTheme(setLocalTheme(value))
   }
-
-  useEffect(() => {
-    document.body.style.transition = null
-  }, [])
 
   return (
     <label
