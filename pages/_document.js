@@ -4,7 +4,11 @@ import { getThemePreference } from '../src/tools/theme-preference'
 
 const setInitialTheme = `(function() {
   ${getThemePreference.toString()}
+
+  document.body.style.transition = 'none'
   document.body.classList.add(getThemePreference())
+
+  document.body.style.transition = null
 })()`
 
 class MyDocument extends Document {
