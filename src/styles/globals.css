@@ -30,7 +30,7 @@
   --color-text: var(--color-dark);
   --color-text-secondary: var(--color-darker);
   --background: var(--color-lighter);
-  --background-secondary: var(--color-light)
+  --background-secondary: var(--color-light);
 }
 
 .dark {
@@ -41,7 +41,7 @@
   --color-text: var(--color-light);
   --color-text-secondary: var(--color-lighter);
   --background: var(--color-darker);
-  --background-secondary: var(--color-dark)
+  --background-secondary: var(--color-dark);
 }
 
 .light,
@@ -57,6 +57,10 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   transition: background-color .25s ease, color .25s ease;
+}
+
+body {
+  font-size: var(--font-text);
 }
 
 h1,
@@ -87,7 +91,6 @@ ol {
 p,
 li,
 pre {
-  font-size: var(--font-text);
   line-height: 1.5;
   margin: 1.2em 0;
 }
@@ -127,7 +130,7 @@ blockquote p {
 }
 
 code {
-  font-size: .75em;
+  font-size: .8em;
   line-height: 1.5;
   background-color: var(--background-secondary);
   border-radius: .3em;
@@ -142,4 +145,19 @@ pre > code {
 p > code {
   display: inline;
   padding: .15em .2em .05em;
+}
+
+::-webkit-scrollbar {
+  width: .45rem;
+  height: .45rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--background-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-text);
+  border: .12rem solid var(--background-secondary);
+  border-radius: .3em;
 }
