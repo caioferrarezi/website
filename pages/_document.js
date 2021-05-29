@@ -7,8 +7,6 @@ const setInitialTheme = `(function() {
 
   document.body.style.transition = 'none'
   document.body.classList.add(getThemePreference())
-
-  document.body.style.transition = null
 })()`
 
 class MyDocument extends Document {
