@@ -23,9 +23,9 @@ export default function Header(props) {
         <div className={styles.headerAvatar}>
           <Image
             src="/images/avatar.jpg"
-            layout="fill"
+            width={256}
+            height={256}
             priority={true}
-            sizes="(max-width: 600px) 32vw, 20vw"
             alt="Minha foto de perfil que vai do topo da cabeça até a altura do ombro, estou com cabelo e barba curtos, vestindo um óculos e uma blusa de moletom azul"
           />
         </div>

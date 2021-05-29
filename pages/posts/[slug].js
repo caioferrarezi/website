@@ -1,9 +1,8 @@
 import Link from 'next/link'
 import Head from 'next/head'
-import Image from 'next/image'
 import Header from "../../src/components/header"
 
-import utils from '../../styles/utils.module.css'
+import utils from '../../src/styles/utils.module.css'
 import styles from './post.module.css'
 
 import { getPostBySlug, getPostSlugs } from "../../lib/api"
