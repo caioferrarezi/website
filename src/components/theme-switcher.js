@@ -1,43 +1,17 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import styles from './theme-switcher.module.css'
 
-function getLocalTheme() {
-  let theme = 'light'
-
-  if (typeof localStorage !== 'undefined') {
-    theme = localStorage.getItem('theme')
-  }
-
-  return theme
-}
-
-function setLocalTheme(value) {
-  if (typeof localStorage !== 'undefined') {
-    localStorage.setItem('theme', value)
-  }
-
-  if (typeof window !== 'undefined') {
-    document.body.classList.remove('light')
-    document.body.classList.remove('dark')
-
-    document.body.classList.add(value)
-  }
-}
+import { getThemePreference, setThemePreference } from '../tools/theme-preference'
 
 export default function ThemeSwitcher() {
-  const [theme, setTheme] = useState(getLocalTheme())
+  const [theme, setTheme] = useState(getThemePreference())
 
   const changeTheme = ({ target }) => {
     const { value } = target
 
-    setTheme(value)
-    setLocalTheme(value)
+    setTheme(setThemePreference(value))
   }
-
-  useEffect(() => {
-    document.body.style.transition = null
-  }, [])
 
   return (
     <label
