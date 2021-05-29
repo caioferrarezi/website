@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Header from '../src/components/header'
 
 import styles from './index.module.css'
-import utils from '../styles/utils.module.css'
+import utils from '../src/styles/utils.module.css'
 
 import { getAllPosts } from '../lib/api'
 import formatDate from '../lib/format-date'
