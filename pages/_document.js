@@ -9,6 +9,14 @@ const setInitialTheme = `(function() {
   document.body.classList.add(getThemePreference())
 })()`
 
+const analyticsScript = `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5TCB42MKSW');
+`
+
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx)
@@ -18,7 +26,13 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang="pt-br">
-        <Head />
+        <Head>
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TCB42MKSW"></script>
+          <script
+            dangerouslySetInnerHTML={{ __html: analyticsScript }}
+          ></script>
+        </Head>
+
         <body>
           <script
             dangerouslySetInnerHTML={{ __html: setInitialTheme }}
