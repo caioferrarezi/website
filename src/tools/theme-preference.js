@@ -21,3 +21,10 @@ export function setThemePreference(value) {
 
   return value
 }
+
+export const setInitialTheme = `(function() {
+  ${getThemePreference.toString()}
+
+  document.body.style.transition = 'none'
+  document.body.classList.add(getThemePreference())
+})()`

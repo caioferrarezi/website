@@ -1,21 +1,7 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 
-import { getThemePreference } from '../src/tools/theme-preference'
-
-const setInitialTheme = `(function() {
-  ${getThemePreference.toString()}
-
-  document.body.style.transition = 'none'
-  document.body.classList.add(getThemePreference())
-})()`
-
-const analyticsScript = `
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-5TCB42MKSW');
-`
+import { setInitialTheme } from '../src/tools/theme-preference'
+import { setAnalytics } from '../src/tools/analytics'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -29,7 +15,7 @@ class MyDocument extends Document {
         <Head>
           <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TCB42MKSW"></script>
           <script
-            dangerouslySetInnerHTML={{ __html: analyticsScript }}
+            dangerouslySetInnerHTML={{ __html: setAnalytics }}
           ></script>
         </Head>
 
