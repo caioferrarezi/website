@@ -1,8 +1,8 @@
 ---
-title: 'Reatividade com proxies no Vue'
-date: '2021-06-14'
+title: 'Entendendo a reatividade do Vue com proxies'
+date: '2021-06-16'
 excerpt: 'Entendendo um pouco do framework por debaixo dos panos.'
-cover: 'images/posts/v-model-customizado'
+cover: 'images/posts/entendendo-a-reatividade-do-vue'
 ---
 
 Se você conhece Vue.js, então com certeza já se deparou com uma propriedade computada (ou *computed property*). São métodos que **declaramos** nos nossos componentes para abstrair expressões mais complexas e que o framework expõe para gente como uma propriedade que acessamos com o `this.`, como por exemplo essa interpolação de string:
