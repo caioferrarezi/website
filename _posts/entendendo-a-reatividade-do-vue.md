@@ -1,6 +1,6 @@
 ---
 title: 'Entendendo a reatividade do Vue com proxies'
-date: '2021-06-18'
+date: '2021-06-17'
 excerpt: 'Entendendo um pouco do framework por debaixo dos panos.'
 cover: 'images/posts/entendendo-a-reatividade-do-vue'
 ---
