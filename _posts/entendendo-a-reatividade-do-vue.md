@@ -1,6 +1,6 @@
 ---
 title: 'Entendendo a reatividade do Vue com proxies'
-date: '2021-06-16'
+date: '2021-06-18'
 excerpt: 'Entendendo um pouco do framework por debaixo dos panos.'
 cover: 'images/posts/entendendo-a-reatividade-do-vue'
 ---
@@ -283,11 +283,9 @@ estado.nome = "Caio" // Não executa a dependência!
 
 ## Código Final
 
-O código que geramos é muito mais simples do que o do Vue, que funciona de forma muito mais robusta. Inclusive, encorajo muito um passeio [por lá](https://github.com/vuejs/vue-next/tree/master/packages/reactivity).
+É claro que o Vue é muito mais robusto do que o vimos aqui. Inclusive, encorajo muito um passeio pelo [código fonte](https://github.com/vuejs/vue-next/tree/master/packages/reactivity) da biblioteca (especialmente a API de reatividade) para tentar visualizar o conceitos que abordamos de forma mais simple aqui.
 
-O ponto de partida é conhecer o conceito do que está por debaixo dos panos das ferramentas que usamos no dia a dia e crescer conforme a necessidade.
-
-Nosso resultado final é:
+Por fim, o código que geramos está na íntegra aqui:
 
 ```javascript
 let efeitoAtivo = null
